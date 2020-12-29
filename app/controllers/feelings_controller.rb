@@ -6,8 +6,12 @@ class FeelingsController < ApplicationController
     @feeling = Feeling.new
   end
   def create
-    Feeling.create(feeling_params)
-    redirect_to new_feeling_path
+    @feeling = Feeling.new(feeling_params)
+    if @feeling.save
+      redirect_to new_feeling_path
+    else
+      render :new
+    end
   end
   private
   def feeling_params
