@@ -1,18 +1,2 @@
-<%= form_with(model: @feeling, local: true) do |form| %>
-  <% if @feeling.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @feeling.errors.count %>件のエラーがあります。</h2>
-      <ul>
-      <% @feeling.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="feeling_content">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
-  <%= form.submit %>
-<% end %>
-<%= link_to '投稿一覧をみる', feelings_path %>
+<h2>投稿する</h2>
+<%= render 'form' %>

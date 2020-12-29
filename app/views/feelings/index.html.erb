@@ -3,9 +3,10 @@
   <tr>
     <th>内容</th>
   </tr>
-<% @feelings.each do |blog| %>
+<% @feelings.each do |feeling| %>
   <tr>
-    <td><%= blog.content %></td>
+    <td><%= feeling.content %></td>
+    <td><%= link_to '投稿を編集する', edit_feeling_path(feeling.id) %></td>
   </tr>
 <% end %>
 </table>
