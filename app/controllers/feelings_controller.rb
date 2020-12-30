@@ -9,7 +9,7 @@ class FeelingsController < ApplicationController
   def create
     @feeling = Feeling.new(feeling_params)
     if @feeling.save
-      redirect_to new_feeling_path, notice: '投稿しました！'
+      redirect_to feelings_path, notice: '投稿しました！'
     else
       render :new
     end
