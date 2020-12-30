@@ -8,10 +8,14 @@ class FeelingsController < ApplicationController
   end
   def create
     @feeling = Feeling.new(feeling_params)
-    if @feeling.save
-      redirect_to feelings_path, notice: '投稿しました！'
-    else
+    if params[:back]
       render :new
+    else
+      if @feeling.save
+        redirect_to feelings_path, notice: '投稿しました！'
+      else
+        render :new
+      end
     end
   end
   def edit
@@ -29,6 +33,7 @@ class FeelingsController < ApplicationController
   end
   def confirm
     @feeling = Feeling.new(feeling_params)
+    render :new if @feeling.invalid?
   end
   private
   def feeling_params

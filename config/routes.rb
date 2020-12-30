@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'feelings#new'
+  root 'feelings#index'
   resources :feelings do
     collection do
       post :confirm
