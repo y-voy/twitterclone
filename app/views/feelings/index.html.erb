@@ -7,6 +7,7 @@
   <tr>
     <td><%= feeling.content %></td>
     <td><%= link_to '投稿を編集する', edit_feeling_path(feeling.id) %></td>
+    <td><%= link_to '投稿を削除する', feeling_path(feeling.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
   </tr>
 <% end %>
 </table>

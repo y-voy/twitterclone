@@ -1,5 +1,5 @@
 class FeelingsController < ApplicationController
-  before_action :set_feeling, only: [:edit, :update]
+  before_action :set_feeling, only: [:edit, :update, :destroy]
   def index
     @feelings = Feeling.all
   end
@@ -22,6 +22,10 @@ class FeelingsController < ApplicationController
     else
       render :edit
     end
+  end
+  def destroy
+    @feeling.destroy
+    redirect_to feelings_path, notice: '削除しました！'
   end
   private
   def feeling_params
