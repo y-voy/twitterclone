@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
-  resources :feelings
   root 'feelings#new'
+  resources :feelings do
+    collection do
+      post :confirm
+    end
+  end
 end

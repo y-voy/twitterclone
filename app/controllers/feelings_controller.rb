@@ -27,6 +27,9 @@ class FeelingsController < ApplicationController
     @feeling.destroy
     redirect_to feelings_path, notice: '削除しました！'
   end
+  def confirm
+    @feeling = Feeling.new(feeling_params)
+  end
   private
   def feeling_params
     params.require(:feeling).permit(:content)
