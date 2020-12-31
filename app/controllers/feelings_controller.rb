@@ -1,5 +1,5 @@
 class FeelingsController < ApplicationController
-  before_action :set_feeling, only: [:edit, :update, :destroy]
+  before_action :set_feeling, only: [:show, :edit, :update, :destroy]
   def index
     @feelings = Feeling.all
   end
@@ -17,6 +17,8 @@ class FeelingsController < ApplicationController
         render :new
       end
     end
+  end
+  def show
   end
   def edit
   end
