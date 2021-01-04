@@ -1,15 +1,21 @@
-<h1>投稿一覧</h1>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Feelings</h1>
+    <p class="lead">Please let us know how you feel now?</p>
+  </div>
+</div>
+<h1 class="alert alert-success">投稿一覧</h1>
 <p><%= notice %></p>
-<table>
-  <tr>
-    <th>内容</th>
-  </tr>
 <% @feelings.each do |feeling| %>
-  <tr>
-    <td><%= feeling.content %></td>
-    <td><%= link_to '投稿を編集する', edit_feeling_path(feeling.id) %></td>
-    <td><%= link_to '投稿を削除する', feeling_path(feeling.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
-  </tr>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <p class="card-text"><%= feeling.content %></p>
+          <a class="card-link"><%= link_to '編集', edit_feeling_path(feeling.id) %></a>
+          <a class="card-link"><%= link_to '削除', feeling_path(feeling.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></a>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
-</table>
-<%= link_to '新しく投稿する', new_feeling_path %>

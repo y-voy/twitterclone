@@ -1,7 +1,9 @@
-<h3>以下の内容で投稿する</h3>
+<h3 class="alert alert-success">以下の内容で投稿する</h3>
 <%= form_with(model: @feeling, local: true) do |form| %>
   <%= form.hidden_field :content %>
   <p>投稿：<%= @feeling.content %></p>
+  <div class="submit">
   <%= form.submit '投稿する' %>
   <%= form.submit '戻る', name: 'back' %>
+  </div>
 <% end %>
