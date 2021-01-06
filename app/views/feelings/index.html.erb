@@ -12,6 +12,7 @@
       <div class="card" style="width: 18rem;">
         <div class="card-body">
           <p class="card-text"><%= feeling.content %></p>
+          <a class="card-link"><%= link_to '詳細', feeling_path(feeling.id) %></a>
           <a class="card-link"><%= link_to '編集', edit_feeling_path(feeling.id) %></a>
           <a class="card-link"><%= link_to '削除', feeling_path(feeling.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></a>
         </div>
